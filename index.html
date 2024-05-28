@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        #timer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        #countdown, #hours-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.5em;
+            flex-wrap: wrap;
+        }
+
+        #countdown div, #hours-countdown div {
+            background: #444;
+            padding: 10px 20px;
+            border-radius: 5px;
+            flex: 1 1 100px;
+            margin: 5px;
+        }
+
+        #experiment {
+            height: 600px;
+            background-color: rgba(57, 77, 13, 0.657);
+            color: rgba(243, 51, 74, 0.736);
+            font-size: larger;
+            padding: 20px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        @media (max-width: 600px) {
+            #countdown div, #hours-countdown div {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">
+        <h1>Countdown to 10:00 AM, 21st July 2024 (PKT)</h1>
+        <div id="countdown">
+            <div><span id="days"></span> Days</div>
+            <div><span id="hours"></span> Hours</div>
+            <div><span id="minutes"></span> Minutes</div>
+            <div><span id="seconds"></span> Seconds</div>
+        </div>
+        <h2>Remaining Time in Hours</h2>
+        <div id="hours-countdown">
+            <div><span id="total-hours"></span> Hours</div>
+            <div><span id="hours-minutes"></span> Minutes</div>
+            <div><span id="hours-seconds"></span> Seconds</div>
+        </div>
+    </div>
+    <div id="experiment">
+        <h1>Welcome</h1>
+        <p>1-Light a candle. Hold the burning candle over the centre of a bowl. Let the hot wax drip onto the centre of the bowl.</p>   
+        <p>2-Place the burning candle on the hot wax in the middle of the bowl. Hold the candle in place for a short time. The candle will stick to the wax in the bowl.</p>
+        <p>3-Take a jug of water. Pour some water carefully into the bowl.</p>
+        <p>4-Place a glass jar over the burning candle. Let the glass rest on the bottom of the bowl.</p>
+        <p>5-Watch the candle, the flame will go out.</p>
+        <p>6-When the flame goes out, the water level inside the glass jar rises. The water is taking the place of the air that the candle has burnt.</p>
+    </div>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("July 21, 2024 10:00:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Time calculations for total hours, minutes and seconds
+            var totalHours = Math.floor(distance / (1000 * 60 * 60));
+            var hoursMinutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var hoursSeconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="days", "hours", "minutes", "seconds"
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            // Output the result in an element with id="total-hours", "hours-minutes", "hours-seconds"
+            document.getElementById("total-hours").innerText = totalHours;
+            document.getElementById("hours-minutes").innerText = hoursMinutes;
+            document.getElementById("hours-seconds").innerText = hoursSeconds;
+
+            // If the count down is finished, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+                document.getElementById("hours-countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
