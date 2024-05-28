@@ -43,17 +43,6 @@
             margin: 5px;
         }
 
-        #experiment {
-            height: 600px;
-            background-color: rgba(57, 77, 13, 0.657);
-            color: rgba(243, 51, 74, 0.736);
-            font-size: larger;
-            padding: 20px;
-            margin-top: 20px;
-            width: 100%;
-            max-width: 600px;
-        }
-
         @media (max-width: 600px) {
             #countdown div, #hours-countdown div {
                 font-size: 1em;
@@ -63,7 +52,7 @@
 </head>
 <body>
     <div id="timer">
-        <h1>Countdown to 10:00 AM, 21st July 2024 (PKT)</h1>
+        <h1>Countdown to 11:00 AM, 1st February 2030 (PKT)</h1>
         <div id="countdown">
             <div><span id="days"></span> Days</div>
             <div><span id="hours"></span> Hours</div>
@@ -77,18 +66,9 @@
             <div><span id="hours-seconds"></span> Seconds</div>
         </div>
     </div>
-<!--     <div id="experiment">
-        <h1>Welcome</h1>
-        <p>1-Light a candle. Hold the burning candle over the centre of a bowl. Let the hot wax drip onto the centre of the bowl.</p>   
-        <p>2-Place the burning candle on the hot wax in the middle of the bowl. Hold the candle in place for a short time. The candle will stick to the wax in the bowl.</p>
-        <p>3-Take a jug of water. Pour some water carefully into the bowl.</p>
-        <p>4-Place a glass jar over the burning candle. Let the glass rest on the bottom of the bowl.</p>
-        <p>5-Watch the candle, the flame will go out.</p>
-        <p>6-When the flame goes out, the water level inside the glass jar rises. The water is taking the place of the air that the candle has burnt.</p>
-    </div> -->
     <script>
         // Set the date we're counting down to
-        var countDownDate = new Date("July 21, 2024 10:00:00").getTime();
+        var countDownDate = new Date("Feb 1, 2030 11:00:00").getTime();
 
         // Update the count down every 1 second
         var x = setInterval(function() {
